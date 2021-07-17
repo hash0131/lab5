@@ -1,0 +1,36 @@
+﻿@model Lab5.Models.AnswerImage
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>AnswerImage</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Upload" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <div class="custom-radio">
+                    <input type="radio" name="Question" value="computer" checked="">What will the computers look like in 20 years?<br>
+                    <input type="radio" name="Question" value="earth">What will the earth look like in 20 years?<br>
+                </div>
+                <div class="btn btn-sm float-left">
+                    <input name="file" type="file">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button name="Upload" class="btn btn-primary">Upload Now</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
